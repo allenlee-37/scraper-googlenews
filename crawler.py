@@ -88,9 +88,11 @@ def process_title_body(search_range = len(url_list)):
                 else: body.append(elem.text) 
             body = ' '.join(body)
             title = title_elem.text
-            result.append([title, body, media, url])
+            new_row = [title, body, media, url]
+            result.append(new_row)
+            print(new_row)
             if i%10==0:result.to_excel(f'{i}-news-crawl-result.xlsx')
-        except: 
+        except:
             error_url = url_list[i]
             result.append(['error', 'error', 'error', error_url])
     return pd.DataFrame(result, columns=['title', 'body', 'media', 'url'])
