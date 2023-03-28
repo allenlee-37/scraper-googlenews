@@ -1,1 +1,3 @@
 venvCrawler
+/crawl_result
+.DS_Store
